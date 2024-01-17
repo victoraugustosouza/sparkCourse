@@ -9,7 +9,7 @@ book = spark.read.option("header", "false").option("inferSchema", "true")\
 words = book.select(func.explode(func.split(book.value,"\\W+")).alias("word"))
 words = words.filter(words.word != '')
 
-lowercase = words.select(func.lower(words.word).alias("words"))
+lowercase = words.select(func.lower("word").alias("words"))
 
 wordCounts = lowercase.groupBy("words").agg(func.count("words").alias("countWords")).sort("countWords",ascending=False)
 
