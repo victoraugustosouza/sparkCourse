@@ -20,7 +20,7 @@ schema = StructType([
 ])
 
 
-temperatureData = spark.read.schema(schema).csv("1800.csv",schema=schema)
+temperatureData = spark.read.schema(schema).csv("1800.csv")
 
 
     
